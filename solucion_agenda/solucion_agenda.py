@@ -58,7 +58,6 @@ def eliminar_diario(): #Funcion que permite al usuario eliminar un día específ
         
     return 
                 
-                ######akhfskdhfskdjhfksjhdfkjhsd
                 
                 
                 
