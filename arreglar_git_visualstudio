@@ -1,0 +1,2 @@
+git pull --rebase origin branchname
+git push origin branchname
