@@ -44,7 +44,7 @@ class Usuario:
 
     def devolver_libro(self, libro):
         if libro in self.libros_prestados:
-            libro.devolver()
+            libro.devolver() g
             self.libros_prestados.remove(libro)
             return True
         return False
