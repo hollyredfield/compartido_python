@@ -1,0 +1,30 @@
+import mysql.connector
+from conexion import Conectar
+
+class Libro:
+    def __init__(self, titulo, lectores, fecha_prestamo):
+        self.titulo = titulo
+        self.lectores = lectores
+        self.fecha_prestamo = fecha_prestamo
+
+    def __str__(self):
+        return f"Nombre del libro: {self.titulo} - Lector: {self.lectores} - Fecha de préstamo: {self.fecha_prestamo}"
+
+class Biblioteca:
+    def __init__(self):
+        self.conexionbdd = Conectar()
+
+    def ver_libros(self):
+        libros = []
+        try:
+            cursor = self.conexionbdd.cursor()
+            query = "SELECT * FROM departamentos"
+            cursor.execute(query)
+            for (titulo, lectores, fecha_prestamo) in cursor:
+                libros.append(Libro(titulo, lectores, fecha_prestamo))
+            self.conexionbdd.commit()
+        except mysql.connector.Error as error:
+            print("No se pudo ver los departamentos", error)
+        finally:
+            self.conexionbdd.close()
+        return libros
