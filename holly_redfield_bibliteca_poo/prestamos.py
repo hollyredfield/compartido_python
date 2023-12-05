@@ -5,29 +5,10 @@ libro INT
 lector INT
 feha_devolucion DATE 
 """
-class Prestamos:
-    def __init(self, fecha_prestamo, libro, lector, fecha_devolucion):
-       self.fecha_prestamo = fecha_prestamo
-       self.libro = libro
-       self.lector = lector
-       self.fecha_devolucion = fecha_devolucion
-       def ver_prestamos(self):
-           print("Fecha de prestamo: ", self.fecha_prestamo)
-           print("Libro: ", self.libro)
-           print("Lector: ", self.lector)
-           print("Fecha de devolución: ", self.fecha_devolucion)
-       def buscar_prestamos(self, libro, lector):
-              if self.libro == libro or self.lector == lector:
-                return True
-              return False
-        def eliminar_prestamos(self, libro, lector):
-            if self.libro == libro or self.lector == lector:
-                return True
-            return False
-        def modificar_prestamos(self, libro, lector):
-            if self.libro == libro or self.lector == lector:
-                return True
-            return False
+
+from conexion import Conectar
+from libro import Libro
+from lector import Lector
 class Prestamo:
     def __init__(self, db):
         self.db = db
@@ -72,4 +53,33 @@ class Prestamo:
         self.db.conexion.commit()
         cursor.close()
         print("Prestamo modificado correctamente.")
-    
+conexion = Conectar()
+conexion.conexion_bdd()
+prestamo = Prestamo(conexion)
+prestamo.add_prestamo("2017-17-07", 1, 1, "2021-01-01")
+conexion.close_connection()
+class Prestamos:
+    def __init(self, fecha_prestamo, libro, lector, fecha_devolucion):
+       self.fecha_prestamo = fecha_prestamo
+       self.libro = libro
+       self.lector = lector
+       self.fecha_devolucion = fecha_devolucion
+       def ver_prestamos(self):
+           print("Fecha de prestamo: ", self.fecha_prestamo)
+           print("Libro: ", self.libro)
+           print("Lector: ", self.lector)
+           print("Fecha de devolución: ", self.fecha_devolucion)
+       def buscar_prestamos(self, libro, lector):
+              if self.libro == libro or self.lector == lector:
+                return True
+              return False
+          
+        def dar_de_baja(self, libro, lector):
+            if self.libro == libro or self.lector == lector:
+                return True
+            return False
+        
+        def modificar_prestamos(self, libro, lector):
+            if self.libro == libro or self.lector == lector:
+                return True
+            return False
