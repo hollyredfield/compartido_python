@@ -65,7 +65,7 @@ class Lector:
             conexion = Conexion()
             conexion.conexion_bdd()
             cursor = conexion.conexion.cursor()
-            query = "UPDATE lectores SET nombre = %s, apellidos = %s, fecha_alta = %s, fecha_baja = %s WHERE id = %s"
+            query = "UPDATE lectores SET nombre = %s, apellidos = %s, fecha_alta = %s, fecha_baja = %s WHERE id_lector = %s"
             valores = (nombre, apellidos, fecha_alta, fecha_baja, id_lector)
             cursor.execute(query, valores)
             conexion.conexion.commit()
