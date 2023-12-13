@@ -1,0 +1,66 @@
+# Importamos las clases Lector, Libro y Prestamo de sus respectivos módulos.
+from lectores import Lector
+from libros import Libro
+from prestamos import Prestamo
+
+# Definimos la clase Menu.
+class Menu:
+    # El método __init__ se llama automáticamente cuando se crea un nuevo objeto de la clase Menu.
+    def __init__(self):
+        # Creamos objetos de las clases Lector, Libro y Prestamo.
+        self.lector = Lector()
+        self.libro = Libro()
+        self.prestamo = Prestamo()
+
+    # Definimos un método para mostrar el menú de opciones al usuario.
+    def mostrar_menu(self):
+        # Imprimimos las opciones del menú.
+        print("\n1. Dar de alta un lector")
+        # ... (resto de las opciones) ...
+
+    # Definimos un método para ejecutar la opción elegida por el usuario.
+    def ejecutar_opcion(self, opcion):
+        # Si la opción está entre 1 y 5, llamamos al método para ejecutar la opción correspondiente a Lector.
+        if opcion in range(1, 6):
+            self.ejecutar_opcion_lector(opcion)
+        # Si la opción está entre 6 y 10, llamamos al método para ejecutar la opción correspondiente a Libro.
+        elif opcion in range(6, 11):
+            self.ejecutar_opcion_libro(opcion - 5)
+        # Si la opción está entre 11 y 15, llamamos al método para ejecutar la opción correspondiente a Prestamo.
+        elif opcion in range(11, 16):
+            self.ejecutar_opcion_prestamo(opcion - 10)
+        # Si la opción es 16, imprimimos un mensaje de salida y terminamos el programa.
+        elif opcion == 16:
+            print("Saliendo del programa...")
+        # Si la opción no es ninguna de las anteriores, imprimimos un mensaje de error.
+        else:
+            print("Opción no válida. Por favor, elige una opción del 1 al 16.")
+
+    # Definimos un método para ejecutar la opción correspondiente a Lector.
+    def ejecutar_opcion_lector(self, opcion):
+        # Si la opción es 1, llamamos al método dar_alta de la clase Lector.
+        if opcion == 1:
+            self.lector.dar_alta()
+        # ... (resto de las opciones) ...
+
+    # Definimos métodos similares para ejecutar las opciones correspondientes a Libro y Prestamo.
+
+# Definimos la función principal del programa.
+def main():
+    # Creamos un objeto de la clase Menu.
+    menu = Menu()
+    # Entramos en un bucle infinito.
+    while True:
+        # Mostramos el menú al usuario.
+        menu.mostrar_menu()
+        # Pedimos al usuario que elija una opción.
+        opcion = int(input("Elige una opción: "))
+        # Ejecutamos la opción elegida por el usuario.
+        menu.ejecutar_opcion(opcion)
+        # Si la opción es 16, salimos del bucle y terminamos el programa.
+        if opcion == 16:
+            break
+
+# Si este archivo se está ejecutando como el principal (no está siendo importado desde otro archivo), llamamos a la función main.
+if __name__ == "__main__":
+    main()
