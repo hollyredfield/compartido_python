@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.nav-link {
+    color: #495057;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.col {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #e9ecef;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #495057;
+    text-align: center;
+}
