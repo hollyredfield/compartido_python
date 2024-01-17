@@ -31,6 +31,7 @@ if (file_exists($nombre_archivo)) {
 }else{
     echo "El archivo que estás intentando abrir no existe". PHP_EOL;
 }
+require_once("");
 ?>
 
 
