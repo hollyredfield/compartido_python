@@ -13,6 +13,24 @@ while(!feof($archivo)) { //feof, bucle, mientras no llegues al final del archivo
     $linea = fgets($archivo); //fget es leer línea y es como un realines en python, y trim es para quitar los espacios. 
     echo $linea;
 }
+fclose($archivo);
+//comprobación de errores 
+$nombre_archivo = "prueba.txt";
+$archivo = fopen($nombre_archivo, "r"); // Define the variable $archivo before using it
+
+echo PHP_EOL . "**********************************************************************";
+if (file_exists($nombre_archivo)) {
+
+    while(!feof($archivo)) { //feof, bucle, mientras no llegues al final del archivo, continúa. 
+        $linea = fgets($archivo); //fget es leer línea y es como un realines en python, y trim es para quitar los espacios. 
+        echo $linea;
+    }
+    fclose($archivo);
+
+
+}else{
+    echo "El archivo que estás intentando abrir no existe". PHP_EOL;
+}
 ?>
 
 
