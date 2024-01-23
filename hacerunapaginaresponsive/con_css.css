@@ -1,0 +1,80 @@
+/* Mediante querys */
+/* La forma de incluir Media Queries dentro de la hoja de estilos CSS es la siguiente: */
+@media (max-width:320px){
+    <!—- Aquí van todos los estilos CSS -->
+  }
+/*   Esta Media Query se ejecutará sólo cuando la anchura de la ventana del navegador sea menor de 320 píxeles. */
+@media (min-width:768px){
+    <!—- Aquí van todos los estilos CSS -->
+  }
+  /* Esta Media Query se ejecutará sólo cuando la anchura de la ventana del navegador sea mayor de 768 píxeles. */
+/*   Además de las características para determinar las resoluciones y anchos de pantalla, podemos determinar otros parámetros, como por ejemplo la orientación del dispositivo, importante en dispositivos móviles: */
+@media (orientation: landscape) {
+    <!-- Aquí van todos los estilos CSS -->
+  }
+  /* También se pueden combinar más de una condición en la misma Media Query para concretar todavía más un rango de resolución, mediante los operadores lógicos:
+
+Operador and: las dos condiciones deben cumplirse para que se apliquen los estilos.
+Operador not: es una negación de una condición. Cuando esta condición no se cumpla, se aplicarán las media queries definidas.
+Operador only: se aplican las reglas solo en el caso de que se cumpla.
+Operador or: se pueden poner varias condiciones separadas por comas y en el momento que se cumpla cualquiera de ellas, se aplicarán los estilos. */
+@media only screen and (min-width:320px) and (max-width:480px){
+    <!—- Aquí van todos los estilos CSS -->
+    }
+    /* Para esta Media Querie se mostrarán los estilos CSS cuando la anchura de la ventana del navegador sea entre 320 pixeles y 480 pixeles, ambos incluidos. */
+    Estos son algunos de los parámetros generales que se pueden emplear a la hora de construir las condiciones en las Media Queries:
+
+    width: anchura de la ventana del navegador.
+    height: altura de la ventana del navegador.
+    device-width: anchura de la resolución de pantalla.
+    device-height: altura de la resolución de pantalla.
+    orientation (portrait/landscape): dispositivo en horizontal o en vertical.
+    resolution: densidad de píxeles.
+    Excepto la orientación, el resto de parámetros admiten los valores “max” y “min”.
+    
+    max-width: La anchura será menor que la indicada.
+    min-width: La anchura será mayor que la indicada.
+    Una cosa muy importante que debemos tener en cuenta a la hora de utilizar las Media Queries, es diferenciar entre el ancho de ventana del navegador y la resolución de la pantalla del dispositivo, es decir:
+    
+    @media only screen and (min-device-width: 960px){
+      /* Aquí van todos los estilos CSS */
+    }
+
+    La escala automática se puede evitar y controlar muy fácil con el uso de este atributo Viewport: es un atributo del tag <meta> que  debe incluirse entre las etiquetas <head> del documento HTML de tu sitio web:
+
+    <meta name="viewport" content="width=device-width"/>
+
+    Es posible definir un tamaño específico para el  área visible del documento; muchos sitios web ajustan directamente el Viewport a 320 px para ajustar la apariencia al display vertical de un smartphone, usando un código similar a este:
+
+<meta name="viewport" content="width=320"/>
+/* Más ejemplos */
+Paso 1: Adapta el CSS y HTML
+El centro del diseño responsive es la combinación de CSS y HTML. Ambos lenguajes controlan el contenido y el diseño de una página en un determinado navegador web.
+
+En primer lugar, la vista y el código CSS (Cascading Style Sheets) están optimizados para tamaños de pantalla pequeños, y luego gradualmente para resoluciones de pantalla más grandes. También puedes controlar el diseño web responsive más allá de la altura, la anchura y el color. El uso de CSS permite crear un diseño responsive cuando se combina con una técnica llamada media query. Esto podría verse así como un ejemplo:
+.element {
+    width: 50%;
+    background-color: red;
+}
+
+@media (max-width: 800px) {
+    .element{
+        width: 100%;
+        background-color: blue;
+    }
+}
+Además, las Media Query, permiten a los desarrolladores utilizar comprobaciones de condición para alterar los diseños web basados en las propiedades del dispositivo del usuario. Esto es superior a simplemente definir puntos de interrupción en el HTML/CSS, ya que es una experiencia más personalizada para el usuario.
+/* If screen size is LESS than 1200px wide */
+@media (max-width: 1200px){ 
+    /* Styles! */
+}
+
+/* If screen size is MORE than 800px wide */
+@media (min-width: 800px){ 
+    /* Styles! */
+}
+
+/* If screen size is BETWEEN 320px and 768px wide AND the orientation is in landscape mode */
+@media (min-width: 320px) and (max-width: 768px) and (orientation: landscape) { 
+    /* Styles! */
+}
