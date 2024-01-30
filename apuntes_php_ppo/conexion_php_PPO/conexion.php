@@ -17,6 +17,9 @@ class ConexionBD { // Definición de la clase ConexionBD
             echo "Conexión exitosa"; // Muestra un mensaje de éxito
         }
     }
+    public function getConexion() { // Método para obtener la conexión
+        return $this->conexion; // Devuelve la conexión
+    }
 
     public function cerrarConexion() { // Método para cerrar la conexión a la base de datos
         if ($this->conexion) { // Si la conexión existe
@@ -28,5 +31,6 @@ class ConexionBD { // Definición de la clase ConexionBD
         }
     }
 } // Fin de la definición de la clase ConexionBD
+
 
 ?> // Fin del bloque de código PHP
